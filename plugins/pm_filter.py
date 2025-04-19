@@ -21,7 +21,7 @@ async def pm_search(client, message):
     user = message.from_user.first_name
     user_id = message.from_user.id
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await auto_filter(bot, message)
+    await auto_filter(client, message)
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
