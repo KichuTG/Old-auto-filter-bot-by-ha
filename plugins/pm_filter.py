@@ -17,11 +17,37 @@ CAP = {}
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_search(client, message):
-    content = message.text
-    user = message.from_user.first_name
-    user_id = message.from_user.id
-    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
-    await auto_filter(client, message)
+    user_id = message.from_user.id if message and message.from_user else 0
+
+    if not user_id:
+        await message.reply("I'm not working for anonymous users!")
+        return
+
+    if message.text.startswith("/"):
+        return
+
+    elif '@admin' in message.text.lower() or '@admins' in message.text.lower():
+        # Not applicable in PM but added for parity
+        await message.reply_text("This feature is only available in groups.")
+        return
+
+    elif re.findall(r'https?://\S+|www\.\S+|t\.me/\S+|@\w+', message.text):
+        await message.delete()
+        return await message.reply('Links not allowed here!')
+
+    elif '#request' in message.text.lower():
+        if message.from_user.id in ADMINS:
+            return
+        await client.send_message(
+            LOG_CHANNEL,
+            f"#Request\n★ User: {message.from_user.mention}\n★ Message: {re.sub(r'#request', '', message.text.lower())}"
+        )
+        await message.reply_text("Request sent!")
+        return
+
+    else:
+        s = await message.reply(f"<b><i>⚠️ `{message.text}` searching...</i></b>")
+        await auto_filter(client, message, s)
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
