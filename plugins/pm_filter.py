@@ -16,15 +16,12 @@ BUTTONS = {}
 CAP = {}
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
-async def pm_search(client, message):
-    files, n_offset, total = await get_search_results(message.text)
-    btn = [[
-        InlineKeyboardButton("🗂 ᴄʟɪᴄᴋ ʜᴇʀᴇ 🗂", url=FILMS_LINK)
-    ]]
-    reply_markup=InlineKeyboardMarkup(btn)
-    if int(total) != 0:
-        await message.reply_text(f'<b><i>🤗 ᴛᴏᴛᴀʟ <code>{total}</code> ʀᴇꜱᴜʟᴛꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜɪꜱ ɢʀᴏᴜᴘ 👇</i></b>', reply_markup=reply_markup)
-
+   async def pm_search(bot, message):
+    content = message.text
+    user = message.from_user.first_name
+    user_id = message.from_user.id
+    if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
+    await auto_filter(bot, message)
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
