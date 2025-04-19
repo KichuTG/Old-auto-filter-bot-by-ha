@@ -16,7 +16,7 @@ BUTTONS = {}
 CAP = {}
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
-   async def pm_search(bot, message):
+   async def pm_search(client, message):
     content = message.text
     user = message.from_user.first_name
     user_id = message.from_user.id
