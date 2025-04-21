@@ -82,6 +82,6 @@ async def inline_search(bot, query):
 def get_reply_markup():
     buttons = [[
         InlineKeyboardButton('⚡️ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ ⚡️', url=UPDATES_LINK),
-        InlineKeyboardButton('💡 Search again 💡', switch_inline_query_current_chat=query)
+        InlineKeyboardButton('💡 Search again 💡', url=SUPPORT_LINK)
     ]]
     return InlineKeyboardMarkup(buttons)
