@@ -11,9 +11,9 @@ import os
 import time
 import asyncio
 #import uvloop
-from hydrogram import types
-from hydrogram import Client
-from hydrogram.errors import FloodWait
+from pyrogram import types
+from pyrogram import Client
+from pyrogram.errors import FloodWait
 from aiohttp import web
 from typing import Union, Optional, AsyncGenerator
 from web import web_app
