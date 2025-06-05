@@ -1,10 +1,10 @@
-from hydrogram import Client, filters
+from pyrogram import Client, filters
 import time
 from database.users_chats_db import db
 from info import ADMINS
 from utils import broadcast_messages, groups_broadcast_messages, temp, get_readable_time
 import asyncio
-from hydrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 lock = asyncio.Lock()
 
