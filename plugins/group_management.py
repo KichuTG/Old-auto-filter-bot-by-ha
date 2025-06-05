@@ -1,4 +1,4 @@
-from hydrogram import Client, filters
+from pyrogram import Client, filters
 from utils import is_check_admin
 from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
 
