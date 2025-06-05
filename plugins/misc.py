@@ -1,6 +1,6 @@
 from info import ADMINS
 from speedtest import Speedtest, ConfigRetrievalError, SpeedtestBestServerFailure
-from hydrogram import Client, filters, enums
+from pyrogram import Client, filters, enums
 from utils import get_size
 from datetime import datetime
 
