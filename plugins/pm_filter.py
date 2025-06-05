@@ -46,7 +46,7 @@ async def pm_search(client, message):
         return
 
     else:
-        s = await message.reply(f"<b><i>⚠️ `{message.text}` searching...</i></b>")
+        s = await message.reply(f"<b><i>⚠️ `{message.text}` searching...</i></b>", quote=True)
         await auto_filter(client, message, s)
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
