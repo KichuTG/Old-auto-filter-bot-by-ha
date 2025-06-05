@@ -1,6 +1,6 @@
 from hydrogram import Client, filters
 from utils import is_check_admin
-from hydrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import ChatPermissions, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 @Client.on_message(filters.command('manage') & filters.group)
