@@ -1,11 +1,11 @@
 import math
 from typing import Union
-from hydrogram.types import Message
+from pyrogram.types import Message
 from utils import temp
-from hydrogram import Client, utils, raw
-from hydrogram.session import Session, Auth
-from hydrogram.errors import AuthBytesInvalid
-from hydrogram.file_id import FileId, FileType, ThumbnailSource
+from pyrogram import Client, utils, raw
+from pyrogram.session import Session, Auth
+from pyrogram.errors import AuthBytesInvalid
+from pyrogram.file_id import FileId, FileType, ThumbnailSource
 
 
 async def chunk_size(length):
