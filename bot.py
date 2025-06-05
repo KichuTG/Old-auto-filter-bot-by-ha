@@ -4,7 +4,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[logging.StreamHandler()]
 )
-logging.getLogger('hydrogram').setLevel(logging.ERROR)
+logging.getLogger('pyrogram').setLevel(logging.ERROR)
 logger = logging.getLogger(__name__)
 
 import os
