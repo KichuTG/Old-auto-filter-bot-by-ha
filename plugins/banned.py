@@ -1,9 +1,9 @@
-from hydrogram import Client, filters
+from pyrogram import Client, filters
 from utils import temp
-from hydrogram.types import Message
+from pyrogram.types import Message
 from database.users_chats_db import db
 from info import SUPPORT_LINK
-from hydrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 async def banned_users(_, __, message: Message):
     return (
