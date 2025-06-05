@@ -1,5 +1,5 @@
-from hydrogram import Client, filters
-from hydrogram.errors import MessageTooLong
+from pyrogram import Client, filters
+from pyrogram.errors import MessageTooLong
 import sys
 import os
 import traceback
